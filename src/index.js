@@ -13,8 +13,9 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { Link, Route, Switch } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { BrowserRouter } from "react-router-dom";
-import Home from "./home";
-
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
+import FAQ from "./components/pages/FAQ";
 
 const client = new ApolloClient({
     link: createHttpLink({
@@ -32,9 +33,10 @@ ReactDOM.render(
     <BrowserRouter>
         <ApolloProvider client={client}>
             <Switch>
-                <Route exact path="/" component={App} />
-                
+                <Route exact path="/" component={Home} />
                 <Route path={"/home"} component={Home} />
+                <Route path={"/about"} component={About} />
+                <Route path={"/faq"} component={FAQ} />
                
             </Switch>
        
